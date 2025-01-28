@@ -62,11 +62,13 @@
 Description of the project in details.
 
 Guiding Question:
-- What is the project
-- Whats the purpose
+- What is the project - The project is all about having a cinema reservation with 2 movies previewing and 10 seats that are functioning
+- Whats the purpose - to have a functioning cinem reservation website
 - What are key components
 - What technology used and how it is used
-
+-HTML
+-CSS
+-JS
 ### Key Components
 <!-- TODO: List of Key Components -->
 <!-- The following are just sample -->
