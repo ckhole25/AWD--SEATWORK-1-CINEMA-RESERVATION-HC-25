@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seat Reservation</title>
+    <link rel="stylesheet" href="/pages/page1/assets/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>MM Cinema Reservation</h1>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Movies</a></li>
+                <li><a href="#">Seat Reservation</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Seat Selection Section -->
+        <section class="seat-selection">
+            <h2>Select Your Seats</h2>
+            <div class="screen">SCREEN</div>
+            <div class="seat-container">
+                <div id="seats-grid"></div>
+            </div>
+
+            <div class="legend">
+                <span class="seat available"></span> Available
+                <span class="seat selected"></span> Selected
+                <span class="seat taken"></span> Taken
+            </div>
+
+            <p id="selected-seats">Selected Seats: <span>None</span></p>
+            <button id="confirm-button">Confirm Selection</button>
+        </section>
+    </main>
+
+    <script src="/pages/page1/assets/js/scripts.js"></script>
+</body>
+</html>

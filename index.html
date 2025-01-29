@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cinema Reservation System</title>
-    <link rel="stylesheet" href="./assets/css/style.css"
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
     <header>
@@ -12,10 +12,8 @@
             <h1>MM Cinema Reservation</h1>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
                     <li><a href="#">Movies</a></li>
-                    <li><a href="#">Seat Reservation</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="/pages/page1/index.html">Seat Reservation</a></li>
                 </ul>
             </nav>
         </div>
@@ -27,7 +25,7 @@
                 <img src="./assets/img/81qJ9jHIgwL.jpg" alt="Movie Poster 1">
                 <h3>The Notebook</h3>
                 <p>Genre: Romance</p>
-                <p>Duration:2H 1M</p>
+                <p>Duration: 2H 1M</p>
                 <button>Reserve Now</button>
             </div>
             <div>
@@ -41,41 +39,38 @@
 
         <section>
             <h2>Make A Reservation</h2>
-            <form>
+            <form id="reservationForm">
                 <div>
                     <label for="movie">Select Movie</label>
-                    <select id="movie">
-                        <option>Movie 1</option>
-                        <option>Movie 2</option>
+                    <select id="movie" required>
+                        <option value="">-- Select a Movie --</option>
+                        <option value="The Notebook">The Notebook</option>
+                        <option value="Eternal Sunshine of the Spotless Mind">Eternal Sunshine of the Spotless Mind</option>
                     </select>
                 </div>
                 <div>
                     <label for="date">Select Date</label>
-                    <input type="date" id="date">
-                </div>
-                <div>
-                    <label for="date">Select Date</label>
-                    <input type="date" id="date">
+                    <input type="date" id="date" required>
                 </div>
                 <div>
                     <label for="time">Select Time</label>
-                    <select id="time">
-                        <option>10:00 AM</option>
-                        <option>1:00 PM</option>
-                        <option>4:00 PM</option>
-                        <option>7:00 PM</option>
+                    <select id="time" required>
+                        <option value="">-- Select a Time --</option>
+                        <option value="10:00 AM">10:00 AM</option>
+                        <option value="1:00 PM">1:00 PM</option>
+                        <option value="4:00 PM">4:00 PM</option>
+                        <option value="7:00 PM">7:00 PM</option>
                     </select>
                 </div>
                 <div>
                     <label for="seats">Number of Seats</label>  
-                    <input type="number" id="seats" min="1" max="10">
+                    <input type="number" id="seats" min="1" max="10" required>
                 </div>
-                <button type="submit">Submit
-                    <a href="./pages/page1/index.html"></a>
-                </button>
+                <button type="submit" id="reserveBtn">Submit Reservation</button>
             </form>
         </section>
     </main>
-    <p>&copy; 2025 Cinema Reservation System. All rights reseved</p>
+    <p>&copy; 2025 Cinema Reservation System. All rights reserved.</p>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>

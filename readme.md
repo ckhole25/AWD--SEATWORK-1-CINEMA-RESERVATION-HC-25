@@ -72,9 +72,9 @@ Guiding Question:
 ### Key Components
 <!-- TODO: List of Key Components -->
 <!-- The following are just sample -->
-- MultiPage Website/Single Page Website
-- Parallax transition
-- Transactional
+- HTML
+- CSS
+- JS
 
 ### Technology
 <!-- TODO: List of Technology Used -->
@@ -121,4 +121,5 @@ WD-ProjectName
 <!-- TODO: Add References -->
 | Title | Purpose | Link |
 |-|-|-|
-| Sample Title | Sample purpose would be here like this and this is the example of what it is. | trykolang.com |
+| Backround Images | The images i used for my movie posters | Pinterest.com |
+| Styles | i got some help from youtube | Youtube.com |
