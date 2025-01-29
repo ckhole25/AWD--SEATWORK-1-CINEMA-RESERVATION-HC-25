@@ -9,7 +9,7 @@ body, ul, li, a {
 body {
     font-family: Arial, sans-serif;
     background-color: #121212;
-    background-image: url('/assets/img/la\ land.jpg'); 
+    background-image: url('../img/la\ land.jpg'); 
     background-size: cover; 
     background-position: center;
     background-repeat: no-repeat; 
