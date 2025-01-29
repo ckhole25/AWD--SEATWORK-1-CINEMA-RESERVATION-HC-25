@@ -8,7 +8,7 @@ body, ul, li, a {
 
 /* Background Image */
 body {
-    background-image: url('/assets/img/la\ land.jpg'); /* Adjust path if needed */
+    background-image: url('../img/la\ land\ 2.jpg'); /* Adjust path if needed */
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
