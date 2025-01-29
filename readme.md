@@ -69,6 +69,7 @@ Guiding Question:
 -HTML
 -CSS
 -JS
+- when clicking the reservation button do not click the movies button since only one is active
 ### Key Components
 <!-- TODO: List of Key Components -->
 <!-- The following are just sample -->
