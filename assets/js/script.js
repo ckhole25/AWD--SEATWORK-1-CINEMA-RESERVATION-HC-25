@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.getElementById("reservationForm");
 
+    // Handle form submission
     form.addEventListener("submit", function (event) {
         event.preventDefault(); // Prevent page refresh
 
@@ -21,6 +22,28 @@ document.addEventListener("DOMContentLoaded", function () {
         sessionStorage.setItem("selectedSeats", seats);
 
         // Redirect to Seat Reservation Page
-        window.location.href = "/pages/page1/index.html";
+        window.location.href = "./pages/page1/index.html";
     });
+
+    // Handle "Reserve Now" button clicks for the first movie
+    const reserveNow1 = document.getElementById('reserveNow1');
+    if (reserveNow1) {
+        reserveNow1.addEventListener('click', function () {
+            // Store movie info in sessionStorage
+            sessionStorage.setItem("selectedMovie", "The Notebook");
+            // Redirect to seat reservation page
+            window.location.href = "./pages/page1/index.html";
+        });
+    }
+
+    // Handle "Reserve Now" button clicks for the second movie
+    const reserveNow2 = document.getElementById('reserveNow2');
+    if (reserveNow2) {
+        reserveNow2.addEventListener('click', function () {
+            // Store movie info in sessionStorage
+            sessionStorage.setItem("selectedMovie", "Eternal Sunshine of the Spotless Mind");
+            // Redirect to seat reservation page
+            window.location.href = "./pages/page1/index.html";
+        });
+    }
 });
