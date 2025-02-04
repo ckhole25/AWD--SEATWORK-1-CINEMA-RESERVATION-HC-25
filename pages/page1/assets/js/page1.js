@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("JavaScript file loaded successfully."); 
+    console.log("JavaScript file loaded successfully.");
 
     const seatsGrid = document.getElementById('seats-grid');
     const selectedSeatsDisplay = document.getElementById('selected-seats').querySelector('span');
     const confirmButton = document.getElementById('confirm-button');
     const paymentSection = document.getElementById('payment-section');
-    const paymentButton = document.getElementById('pay-button'); 
+    const paymentButton = document.getElementById('pay-button');
     const ticketSection = document.getElementById('ticket-section');
     const ticketSeats = document.getElementById('ticket-seats');
     const ticketPrice = document.getElementById('ticket-price');
@@ -16,13 +16,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalSeats = totalRows * totalCols;
     let selectedSeats = [];
 
-    function createSeats() {
-        seatsGrid.innerHTML = '';  
-        console.log("Creating seats..."); 
+    // Load selected seats from localStorage
+    const savedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
+    if (savedSeats) {
+        selectedSeats = savedSeats;
+        updateSelectedSeatsDisplay(); // Update display with loaded seats
+    }
 
-        seatsGrid.style.display = 'grid';
-        seatsGrid.style.gridTemplateColumns = `repeat(${totalCols}, 30px)`;
-        seatsGrid.style.gap = '5px';
+    function createSeats() {
+        seatsGrid.innerHTML = '';  // Clear the existing seats
+        console.log("Creating seats...");
 
         for (let i = 0; i < totalSeats; i++) {
             const seat = document.createElement('div');
@@ -36,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
             seat.addEventListener('click', () => handleSeatClick(seat));
             seatsGrid.appendChild(seat);
         }
-        console.log("Seats created:", seatsGrid.children.length); 
+        console.log("Seats created:", seatsGrid.children.length);
     }
 
     function handleSeatClick(seat) {
@@ -64,6 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
             alert(`Seats confirmed: ${selectedSeats.join(', ')}`);
             paymentSection.classList.remove('hidden');
             document.getElementById('total-price').textContent = `₱${selectedSeats.length * 250}`;
+            
+            // Save selected seats to localStorage
+            localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
         }
     });
 
@@ -75,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     downloadButton.addEventListener('click', () => {
         alert('Your ticket has been downloaded!');
+        localStorage.removeItem('selectedSeats'); // Clear stored seats after download
     });
 
     createSeats();
