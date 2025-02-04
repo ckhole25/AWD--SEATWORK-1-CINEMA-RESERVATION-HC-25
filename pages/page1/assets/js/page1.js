@@ -16,25 +16,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalSeats = totalRows * totalCols;
     let selectedSeats = [];
 
-    // Check for localStorage support
+    
     if (typeof(Storage) === "undefined") {
         console.log("Web Storage is not supported.");
     } else {
         console.log("Web Storage is supported.");
     }
 
-    // Load selected seats from localStorage
+    
     const savedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
     if (savedSeats) {
         selectedSeats = savedSeats;
-        updateSelectedSeatsDisplay(); // Update display with loaded seats
+        updateSelectedSeatsDisplay(); 
         console.log("Loaded seats from localStorage:", selectedSeats);
     } else {
         console.log("No saved seats found in localStorage.");
     }
 
     function createSeats() {
-        seatsGrid.innerHTML = '';  // Clear the existing seats
+        seatsGrid.innerHTML = '';  
         console.log("Creating seats...");
 
         for (let i = 0; i < totalSeats; i++) {
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
             paymentSection.classList.remove('hidden');
             document.getElementById('total-price').textContent = `₱${selectedSeats.length * 250}`;
             
-            // Save selected seats to localStorage
+          
             localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
             console.log("Saved selected seats to localStorage:", selectedSeats);
         }
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     downloadButton.addEventListener('click', () => {
         alert('Your ticket has been downloaded!');
-        localStorage.removeItem('selectedSeats'); // Clear stored seats after download
+        localStorage.removeItem('selectedSeats'); 
         console.log("Cleared selected seats from localStorage.");
     });
 
