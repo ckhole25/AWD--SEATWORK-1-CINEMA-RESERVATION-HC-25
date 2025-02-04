@@ -1,66 +1,81 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log("JavaScript file loaded successfully."); 
+
     const seatsGrid = document.getElementById('seats-grid');
-    const selectedSeatsDisplay = document.getElementById('selected-seats').getElementsByTagName('span')[0];
+    const selectedSeatsDisplay = document.getElementById('selected-seats').querySelector('span');
     const confirmButton = document.getElementById('confirm-button');
-    
-    const totalSeats = 50; // Total number of seats in the grid (10 rows * 5 columns for simplicity)
+    const paymentSection = document.getElementById('payment-section');
+    const paymentButton = document.getElementById('pay-button'); 
+    const ticketSection = document.getElementById('ticket-section');
+    const ticketSeats = document.getElementById('ticket-seats');
+    const ticketPrice = document.getElementById('ticket-price');
+    const downloadButton = document.getElementById('download-ticket');
+
+    const totalRows = 5;
+    const totalCols = 10;
+    const totalSeats = totalRows * totalCols;
     let selectedSeats = [];
 
-    // Create seat elements
     function createSeats() {
+        seatsGrid.innerHTML = '';  
+        console.log("Creating seats..."); 
+
+        seatsGrid.style.display = 'grid';
+        seatsGrid.style.gridTemplateColumns = `repeat(${totalCols}, 30px)`;
+        seatsGrid.style.gap = '5px';
+
         for (let i = 0; i < totalSeats; i++) {
             const seat = document.createElement('div');
             seat.classList.add('seat');
             seat.dataset.index = i;
 
-            // If the seat is already taken (just an example, can be customized)
             if (Math.random() < 0.2) {
                 seat.classList.add('taken');
-                seat.style.cursor = 'not-allowed';
             }
 
             seat.addEventListener('click', () => handleSeatClick(seat));
-
             seatsGrid.appendChild(seat);
         }
+        console.log("Seats created:", seatsGrid.children.length); 
     }
 
-    // Handle click on a seat
     function handleSeatClick(seat) {
-        // If the seat is already taken, do nothing
         if (seat.classList.contains('taken')) return;
 
-        // Toggle seat selection
         if (seat.classList.contains('selected')) {
             seat.classList.remove('selected');
-            selectedSeats = selectedSeats.filter(s => s !== seat.dataset.index); // Remove from selection
+            selectedSeats = selectedSeats.filter(s => s !== seat.dataset.index);
         } else {
             seat.classList.add('selected');
-            selectedSeats.push(seat.dataset.index); // Add to selection
+            selectedSeats.push(seat.dataset.index);
         }
 
-        // Update selected seats display
         updateSelectedSeatsDisplay();
     }
 
-    // Update the display for selected seats
     function updateSelectedSeatsDisplay() {
-        if (selectedSeats.length === 0) {
-            selectedSeatsDisplay.textContent = 'None';
-        } else {
-            selectedSeatsDisplay.textContent = selectedSeats.join(', ');
-        }
+        selectedSeatsDisplay.textContent = selectedSeats.length ? selectedSeats.join(', ') : 'None';
     }
 
-    // Confirm the seat selection
     confirmButton.addEventListener('click', () => {
         if (selectedSeats.length === 0) {
             alert('Please select at least one seat.');
         } else {
-            alert(`You have selected seats: ${selectedSeats.join(', ')}`);
+            alert(`Seats confirmed: ${selectedSeats.join(', ')}`);
+            paymentSection.classList.remove('hidden');
+            document.getElementById('total-price').textContent = `₱${selectedSeats.length * 250}`;
         }
     });
 
-    // Initialize the seat grid
+    paymentButton.addEventListener('click', () => {
+        ticketSection.classList.remove('hidden');
+        ticketSeats.textContent = selectedSeats.join(', ');
+        ticketPrice.textContent = `₱${selectedSeats.length * 250}`;
+    });
+
+    downloadButton.addEventListener('click', () => {
+        alert('Your ticket has been downloaded!');
+    });
+
     createSeats();
 });

@@ -1,42 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seat Reservation</title>
-    <link rel="stylesheet" href="assets/css/page1.css">
-</head>
-<body>
-    <header>
-        <h1>MM Cinema Reservation</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Movies</a></li> 
-                <li><a href="#">Seat Reservation</a></li>
-            </ul>
-        </nav>
-    </header>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Seat Reservation</title>
+        <link rel="stylesheet" href="assets/css/page1.css">
+    </head>
+    <body>
+        <header>
+            <h1>MM Cinema Reservation</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Movies</a></li> 
+                    <li><a href="#">Seat Reservation</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main>
+            <section class="seat-selection">
+                <h2>Select Your Seats</h2>
+                <div class="screen">SCREEN</div>
+                <div class="seat-container">
+                    <div id="seats-grid"></div> 
+                </div>
 
-    <main>
-        <!-- Seat Selection Section -->
-        <section class="seat-selection">
-            <h2>Select Your Seats</h2>
-            <div class="screen">SCREEN</div>
-            <div class="seat-container">
-                <div id="seats-grid"></div>
-            </div>
+                <div class="legend">
+                    <div><span class="seat available"></span> Available</div>
+                    <div><span class="seat selected"></span> Selected</div>
+                    <div><span class="seat taken"></span> Taken</div>
+                </div>
 
-            <div class="legend">
-                <span class="seat available"></span> Available
-                <span class="seat selected"></span> Selected
-                <span class="seat taken"></span> Taken
-            </div>
+                <p id="selected-seats">Selected Seats: <span>None</span></p>
+                <button id="confirm-button">Confirm Selection</button>
+            </section>
 
-            <p id="selected-seats">Selected Seats: <span>None</span></p>
-            <button id="confirm-button">Confirm Selection</button>
-        </section>
-    </main>
+           
+            <section id="payment-section" class="payment-section hidden">
+                <h2>Payment</h2>
+                <p>Total Price: <span id="total-price">₱0</span></p>
+                <button id="pay-button" class="payment-button">Proceed to Payment</button>
+            </section>
 
-    <script src="assets/js/page1.js"></script>
-</body>
-</html>
+            
+            <section id="ticket-section" class="ticket-section hidden">
+                <h2>Your Ticket</h2>
+                <div class="ticket">
+                    <p><strong>Movie:</strong> MM Cinema</p>
+                    <p><strong>Seats:</strong> <span id="ticket-seats">None</span></p>
+                    <p><strong>Price:</strong> <span id="ticket-price">₱0</span></p>
+                </div>
+                <button id="download-ticket">Download Ticket</button>
+            </section>
+        </main>
+
+        <script src="assets/js/page1.js"></script> 
+    </body>
+    </html>

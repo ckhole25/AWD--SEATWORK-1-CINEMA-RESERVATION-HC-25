@@ -1,3 +1,4 @@
+
 body, ul, li, a {
     margin: 0;
     padding: 0;
@@ -8,7 +9,7 @@ body, ul, li, a {
 
 /* Background Image */
 body {
-    background-image: url('/assets/img/la\ land.jpg'); /* Adjust path if needed */
+    background-image: url('../img/laland2.jpg'); 
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -23,7 +24,6 @@ body {
     min-height: 100vh;
 }
 
-/* Header */
 header {
     background-color: black;
     padding: 15px 0;
@@ -58,7 +58,23 @@ header nav ul li a:hover {
     color: white;
 }
 
-/* General Seat Layout */
+
+.seat-selection {
+    margin-top: 20px;
+}
+
+.screen {
+    width: 80%;
+    padding: 10px;
+    background: white;
+    text-align: center;
+    font-weight: bold;
+    margin: 10px auto;
+    border-radius: 5px;
+    color: black;
+}
+
+
 .seat-container {
     display: flex;
     justify-content: center;
@@ -66,29 +82,37 @@ header nav ul li a:hover {
     flex-wrap: wrap;
     gap: 8px;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.6); /* Keeps the dark theme */
+    background: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
     margin: 20px auto;
-    width: 60%;
+    width: 40%;
 }
 
-/* Seats Grid */
+
 #seats-grid {
     display: grid;
     grid-template-columns: repeat(10, 30px);
     gap: 5px;
     padding: 10px;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    position: relative; 
+    z-index: 2;
+    justify-content: center; 
 }
 
-/* Individual Seat */
+
 .seat {
     width: 30px;
     height: 30px;
     border-radius: 5px;
-    background-color: gray; /* Maintains original color */
+    background-color: gray;
     cursor: pointer;
     transition: 0.3s;
     border: 1px solid white;
+    position: relative; 
+    z-index: 3; 
 }
 
 .seat:hover {
@@ -103,18 +127,6 @@ header nav ul li a:hover {
 .seat.taken {
     background-color: red;
     cursor: not-allowed;
-}
-
-/* Screen */
-.screen {
-    width: 80%;
-    padding: 10px;
-    background: white;
-    text-align: center;
-    font-weight: bold;
-    margin: 10px auto;
-    border-radius: 5px;
-    color: black;
 }
 
 /* Legend */
@@ -137,14 +149,9 @@ header nav ul li a:hover {
     height: 20px;
 }
 
-.legend p {
-    margin: 0;
-    font-size: 14px;
-}
-
 /* Button Styling */
 button {
-    background: black; /* Keeps original color scheme */
+    background: black;
     border: none;
     padding: 10px 15px;
     font-size: 16px;
@@ -158,13 +165,64 @@ button:hover {
     background: red;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 10px;
-    background: rgba(0, 0, 0, 0.8);
+/* Payment Section */
+.payment-section {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
     color: white;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+    text-align: center;
+    max-width: 400px;
+}
+
+.payment-button {
+    background-color: green;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.payment-button:hover {
+    background-color: darkgreen;
+}
+
+/* Ticket Section */
+.ticket-section {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    max-width: 400px;
+}
+
+.ticket {
+    background: white;
+    color: black;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Download Ticket Button */
+#download-ticket {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#download-ticket:hover {
+    background-color: #0056b3;
+}
+
+/* Hidden Elements */
+.hidden {
+    display: none;
 }
