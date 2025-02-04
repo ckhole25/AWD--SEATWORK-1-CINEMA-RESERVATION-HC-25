@@ -16,11 +16,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalSeats = totalRows * totalCols;
     let selectedSeats = [];
 
+    // Check for localStorage support
+    if (typeof(Storage) === "undefined") {
+        console.log("Web Storage is not supported.");
+    } else {
+        console.log("Web Storage is supported.");
+    }
+
     // Load selected seats from localStorage
     const savedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
     if (savedSeats) {
         selectedSeats = savedSeats;
         updateSelectedSeatsDisplay(); // Update display with loaded seats
+        console.log("Loaded seats from localStorage:", selectedSeats);
+    } else {
+        console.log("No saved seats found in localStorage.");
     }
 
     function createSeats() {
@@ -54,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         updateSelectedSeatsDisplay();
+        console.log("Selected seats updated:", selectedSeats);
     }
 
     function updateSelectedSeatsDisplay() {
@@ -70,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Save selected seats to localStorage
             localStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
+            console.log("Saved selected seats to localStorage:", selectedSeats);
         }
     });
 
@@ -82,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
     downloadButton.addEventListener('click', () => {
         alert('Your ticket has been downloaded!');
         localStorage.removeItem('selectedSeats'); // Clear stored seats after download
+        console.log("Cleared selected seats from localStorage.");
     });
 
     createSeats();
